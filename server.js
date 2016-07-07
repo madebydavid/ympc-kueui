@@ -8,7 +8,7 @@ module.exports = server;
 function server (config) {
   config.get('redis.socket')
     ? kue.createQueue({
-        prefix: 'queue',
+        prefix: config.get('prefix'),
         redis: {
           socket: config.get('redis.socket'),
           auth: config.get('redis.password')
@@ -16,7 +16,7 @@ function server (config) {
       })
 
     : kue.createQueue({
-      prefix: 'queue',
+      prefix: config.get('prefix'),
       redis: {
         port: config.get('redis.port'),
         host: config.get('redis.host'),

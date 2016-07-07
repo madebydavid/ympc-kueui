@@ -2,6 +2,7 @@ var defaults = {
   address: 'localhost',
   port: 10042,
   updateinterval: 1000,
+  prefix: 'queue',
 
   redis: {
     socket: null,
